@@ -1,0 +1,143 @@
+step-1
+==========================
+Create a firebase Project
+==========================
+https://console.firebase.google.com
+------------------------------------
+1-Add Project
+2- npm install firebase angularfire2 --save
+Step-2
+
+app.modules.ts
+==============
+
+1-import { AngularFireModule  } from 'angularfire2';
+2-import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+Add Firebase to your web app
+-------------------------------
+click on Add Firebase to your web app
+
+environment.ts
+--------------
+export const environment = {
+  production: false,
+  firebaseConfig : {
+    apiKey: "AIzaSyB6Wu6NfeA_zbQ03mnGf26XyxEW2f_x4JQ",
+    authDomain: "crudfirebase-efa26.firebaseapp.com",
+    databaseURL: "https://crudfirebase-efa26.firebaseio.com",
+    projectId: "crudfirebase-efa26",
+    storageBucket: "crudfirebase-efa26.appspot.com",
+    messagingSenderId: "562471815221"
+
+  }
+};
+
+
+environment.prod.ts
+----------------------------
+export const environment = {
+  production: true,
+  firebaseConfig : {
+    apiKey: "AIzaSyB6Wu6NfeA_zbQ03mnGf26XyxEW2f_x4JQ",
+    authDomain: "crudfirebase-efa26.firebaseapp.com",
+    databaseURL: "https://crudfirebase-efa26.firebaseio.com",
+    projectId: "crudfirebase-efa26",
+    storageBucket: "crudfirebase-efa26.appspot.com",
+    messagingSenderId: "562471815221"
+
+  }
+};
+
+
+app.module.ts
+-------------
+import { environment } from '../environments/environment';
+
+
+
+ imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
+
+  ],
+
+
+Go to database
+==============
+
+Create Databse
+
+
+Let Create Componet database service
+-------------------------------------
+
+create a componet
+-----------------
+ng g c employees
+	create a child componet into employees componet.
+
+ng g c employee
+ng g c employee-list
+
+Create a new folder inside employess folder
+
+shared(folder name)
+
+cd shared
+
+ng g s employee
+
+
+create a classs in shared folder
+
+ng g class employee --type=model ( it will create employee.model.ts file with class name employee)
+
+
+export class Employee {
+
+$key : string; //when we insert a new record firebase db  it will automaticly create a string key identify each key inside db
+name : string;
+postion : string;
+office : string;
+salary : number
+
+}
+
+
+import a employee.model.ts file into service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+   
+  
+  
+  onEdit(emp: Employee){
+
+       this.EmployeeService.selectedEmployee = emp;
+
+  }
+
+
+"node_modules/ngx-toastr/toastr.css"
+
+this.toastr.success('Submitted Succcessfuly!', 'Employee Resgister!');
+
+
+
