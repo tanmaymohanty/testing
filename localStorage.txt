@@ -1,0 +1,73 @@
+                     Cookies
+=========================================================================
+
+npm install angular2-cookie --save
+
+app.module.ts
+--------------
+import { CookieService } from 'angular2-cookie/service/cookies.service';
+
+provider[ CookieService ]
+
+app.componet.ts
+-------------------
+import { CookieService  } from 'angular2-cookie/core';
+
+constructor( private _cookieService:cookService){}
+
+setCookies(){
+this._cookieService.put('test','testing cookie');
+}
+
+getCookies(){
+alert(this._cookieService.get("test"));
+}
+
+delCookies(){
+	
+  this._cookieService.remove("test");
+}
+
+
+localStorage
+=================
+
+npm install ngx-webstorage --save
+
+
+import { ng2webstorage } from 'ngx-webstorage';
+
+imports: [ ng2webstorage  ]
+
+
+app.componet.ts
+-----------------
+
+import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
+
+constructor( private localst : LocalstorageService private sesionst:SessionstorageService){
+
+} 
+
+setLocalStorage(){
+	this.localst.store('userName','tanmaya Mohanty');
+}
+
+getLocalStorage(){
+	alert(this.localst.retrieve('userName');
+}
+deLocalStorage(){
+   this.localst.clear('boundValue');
+}
+
+setSessionStorage(){
+	this.sesionst.store('logged-in','user');
+}
+
+getSessionStorage(){
+	alert(this.sesionst.retrieve('login_in');
+}
+delSessionStorage(){
+   this.sesionst.clear('login_in');
+}
+
